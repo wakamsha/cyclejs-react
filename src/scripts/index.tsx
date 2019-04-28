@@ -29,7 +29,11 @@ function renderScrollForm({ scrollValue }: { scrollValue: string }): JSX.Element
       <div>スクロール値 : {scrollValue}</div>
       <Incorporator
         type="input"
-        props={{ sel: 'sel-input-offsetY', type: 'number', placeholder: 'input offset-y value...' }}
+        props={{
+          sel: 'sel-input-offsetY',
+          type: 'number',
+          placeholder: 'input offset-y value...',
+        }}
       />
     </div>
   );

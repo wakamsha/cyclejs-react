@@ -49,6 +49,8 @@ function Component({ DOM, props }: So): Si {
   };
 }
 
+// OuterSi 型の定義に問題があるっぽいため、
+// 戻り値を any型にしないとコンパイルエラーとなる。
 export function VoteComponent(so: So): any {
   return isolate<So, Si>(Component)(so);
 }
