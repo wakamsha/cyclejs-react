@@ -1,0 +1,36 @@
+{
+  "name": "cyclejs-react",
+  "version": "1.0.0",
+  "repository": "git@github.com:wakamsha/cyclejs-react.git",
+  "author": "wakamsha <wakamsha@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@cycle/isolate": "^5.0.0",
+    "@cycle/react": "^2.0.0",
+    "@cycle/react-dom": "^2.0.0",
+    "@cycle/run": "^5.2.0",
+    "@cycle/rxjs-run": "^10.2.0",
+    "ramda": "^0.26.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "rxjs": "^6.5.1",
+    "xstream": "^11.10.0"
+  },
+  "devDependencies": {
+    "@types/ramda": "^0.26.8",
+    "@types/react": "^16.8.14",
+    "browser-sync": "^2.26.5",
+    "npm-run-all": "^4.1.5",
+    "ts-loader": "^5.4.4",
+    "typescript": "^3.4.5",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.1"
+  },
+  "scripts": {
+    "reset": "rm -rf dist/; mkdir -p dist/",
+    "copy": "cp src/index.html dist/index.html",
+    "script": "webpack --progress --colors --watch -d",
+    "serve": "browser-sync start -c bs-config.js",
+    "start": "yarn reset; yarn copy; run-p script serve"
+  }
+}
