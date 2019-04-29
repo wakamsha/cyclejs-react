@@ -10,6 +10,7 @@
     "@cycle/react-dom": "^2.0.0",
     "@cycle/run": "^5.2.0",
     "@cycle/rxjs-run": "^10.2.0",
+    "office-ui-fabric-react": "^6.173.0",
     "ramda": "^0.26.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -32,5 +33,6 @@
     "script": "webpack --progress --colors --watch -d",
     "serve": "browser-sync start -c bs-config.js",
     "start": "yarn reset; yarn copy; run-p script serve"
-  }
+  },
+  "main": "index.js"
 }

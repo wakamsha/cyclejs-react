@@ -1,5 +1,6 @@
 import { makeDOMDriver } from '@cycle/react-dom';
 import { run } from '@cycle/rxjs-run';
+import { Text, TextField } from 'office-ui-fabric-react';
 import * as React from 'react';
 import { combineLatest, merge, Observable } from 'rxjs';
 import { map, scan, share, startWith } from 'rxjs/operators';
@@ -26,11 +27,11 @@ function renderScrollForm({ scrollValue }: { scrollValue: string }): JSX.Element
         right: '16px',
       }}
     >
-      <div>スクロール値 : {scrollValue}</div>
+      <Text variant="medium">スクロール値 : {scrollValue}</Text>
       <Incorporator
-        type="input"
+        type={TextField}
         props={{
-          sel: 'sel-input-offsetY',
+          sel: 'event-input-offsetY',
           type: 'number',
           placeholder: 'input offset-y value...',
         }}
@@ -55,8 +56,11 @@ function render({
         height: 3000,
       }}
     >
-      <p>{name ? `Hello, ${name}!!!!` : `What's your name?`}</p>
-      <Incorporator type="input" props={{ sel: 'sel-input-name', placeholder: 'naoki yamada' }} />
+      <Text variant="xLarge">{name ? `Hello, ${name}!!!!` : `What's your name?`}</Text>
+      <Incorporator
+        type={TextField}
+        props={{ sel: 'event-input-name', placeholder: 'naoki yamada', value: name, label: 'Your name' }}
+      />
       <hr />
       {renderScrollForm(store)}
       {thumbsUpDOM}
@@ -67,8 +71,8 @@ function render({
 }
 
 function main({ DOM, Scroll }: SoAll): SiAll {
-  const eventInputName$ = Rx.O(DOM.select('sel-input-name').events('input'));
-  const eventInputOffset$ = Rx.O(DOM.select('sel-input-offsetY').events('input'));
+  const eventInputName$ = Rx.O(DOM.select('event-input-name').events('change'));
+  const eventInputOffset$ = Rx.O(DOM.select('event-input-offsetY').events('change'));
 
   const thumbsUpComponent = VoteComponent({
     DOM,

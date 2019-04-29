@@ -1,4 +1,5 @@
 import isolate from '@cycle/isolate';
+import { DefaultButton } from 'office-ui-fabric-react';
 import * as React from 'react';
 import { Observable, of } from 'rxjs';
 import { mapTo } from 'rxjs/operators';
@@ -23,17 +24,16 @@ function render({ props }: { props: Props }): React.ReactElement {
   return (
     <>
       <Incorporator
-        type="button"
+        type={DefaultButton}
         props={{
           sel: 'sel-click',
           style: {
             fontSize: 32,
             cursor: 'pointer',
           },
+          text: props.label,
         }}
-      >
-        {props.label}
-      </Incorporator>
+      />
     </>
   );
 }

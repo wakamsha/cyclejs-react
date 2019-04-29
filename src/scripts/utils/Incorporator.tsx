@@ -2,7 +2,7 @@ import { incorporate } from '@cycle/react/lib/cjs/incorporate';
 import * as React from 'react';
 
 type Props = {
-  type: string | ((props?: any) => JSX.Element);
+  type: any;
   props: any;
   children?: React.ReactNode;
 };
